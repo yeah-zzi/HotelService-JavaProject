@@ -1,7 +1,7 @@
 package userlogin;
-//결제화면
+// 사용자 - 예약 - 결제화면
+
 import javax.swing.*;
-import javax.swing.border.*;
 import java.awt.*; 
 import java.awt.event.*; 
 
@@ -17,10 +17,11 @@ public class Pay extends JFrame implements ActionListener, ItemListener {
 	private JComboBox creditsCombo, creditsInCombo, depositsCombo;
 	private JButton jbYes, jbCancel;
 	
-	public Pay() {
+	Pay (String title) { // 생성자 시작
+		
+		setTitle(title);
 		
 		jlPay = new JLabel("[  결제수단  ]");
-		
 
 		// 결제수단 라디오버튼그룹
 		btg = new ButtonGroup();
@@ -84,8 +85,8 @@ public class Pay extends JFrame implements ActionListener, ItemListener {
 		jlTotalP.setBounds(190, 500, 100, 30);
 		jlTotalP_num.setBounds(350, 500, 100, 30);
 		jlLine2.setBounds(165, 550, 500, 30);
-		jbYes.setBounds(455, 600, 100, 45);	// y좌표 700
-		jbCancel.setBounds(575, 600, 100, 45);
+		jbYes.setBounds(455, 700, 100, 45);
+		jbCancel.setBounds(575, 700, 100, 45);
 		
 		// 창에 전부 추가
 		ct.add(jlPay);
@@ -124,61 +125,23 @@ public class Pay extends JFrame implements ActionListener, ItemListener {
 		if (s.equals("결제하기")) {	// 결제하기 버튼 누를시
 			// 결제 수단 하나도 선택 안했으면 안된다고 띄우기
 			if (( creditCard.isSelected() || deposit.isSelected() || naverPay.isSelected() || kakaoPay.isSelected() || payco.isSelected() )== false) {
-				PayJDialog pcNo = new PayJDialog(this, "결제", true, "결제 수단을 선택해 주세요!");
-				pcNo.show();
+				JOptionPane.showMessageDialog(this, "결제수단을 선택해주세요!", "알림창", JOptionPane.ERROR_MESSAGE);
 			}
 			else {
-				PayJDialog pcYes = new PayJDialog(this, "결제", true, "결제가 완료되었습니다!");
-				pcYes.show();	// 결제 완료 창 띄우기 
+				JOptionPane.showMessageDialog(this, "결제가 완료되었습니다!", "알림창", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
 		else {	// 취소 버튼 누를시
-			// 창 닫기 
-		}
-	}
-	
-	class PayJDialog extends JDialog implements ActionListener {
-		// JDialg창 띄우기 클래스
-		JButton dia_ok;
-		
-		PayJDialog(JFrame parent, String title, boolean mode, String msg) {
-			super(parent, title, mode);
-			
-			JPanel p1 = new JPanel(); 
-			p1.setLayout(new GridLayout(3,0));
-
-			JLabel label1 = new JLabel(" ");
-			JLabel label2 = new JLabel(msg);
-			JLabel label3 = new JLabel(" ");
-			
-			label1.setHorizontalAlignment(JLabel.CENTER);
-			label2.setHorizontalAlignment(JLabel.CENTER);
-			label3.setHorizontalAlignment(JLabel.CENTER);
-			
-			p1.add(label1);	p1.add(label2);	p1.add(label3);
-			add(p1, BorderLayout.CENTER);
-			
-			JPanel p2 = new JPanel();
-			dia_ok = new JButton("OK");
-			dia_ok.addActionListener(this);
-			p2.add(dia_ok);
-			add(p2, BorderLayout.SOUTH);
-			
-			this.setBounds(420,235,500,230);
-		}
-		
-		public void actionPerformed(ActionEvent ae) {
-			dispose(); // 다이얼로그 창 닫기.
+			dispose();	// 창 닫기
 		}
 	}
 
 
 	public static void main(String[] args) {
-		Pay pa = new Pay();
+		Pay pa = new Pay("예약 - 결제");
 		
-		pa.setTitle("예약");
 		pa.setSize(800, 900);
-		pa.setLocation(350, 80);
+		pa.setLocation(350, 20);
 		pa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		pa.setVisible(true);
 	}
