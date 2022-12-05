@@ -1,4 +1,4 @@
-//·Î±×ÀÎ
+//ë¡œê·¸ì¸
 
 package userlogin;
 
@@ -9,42 +9,42 @@ import project.SignUp.ableIdDialog;
 import java.awt.*; 
 import java.awt.event.*; 
 
-public class Login extends JFrame implements ActionListener{ //·Î±×ÀÎ È­¸é
+public class Login extends JFrame implements ActionListener{ //ë¡œê·¸ì¸ í™”ë©´
    
-   private JTextField jtf1, jtf2; //id,pw ÀÔ·ÂÄ­
+   private JTextField jtf1, jtf2; //id,pw ì…ë ¥ì¹¸
    private JLabel lb_id, lb_pw; //id,pw label
-   private JLabel lb_name; //È£ÅÚ¸í label
-   private JButton bt_find_pw, bt_join, bt_cancle; //ºñ¹Ğ¹øÈ£ Ã£±â, È¸¿ø°¡ÀÔ, Ãë¼Ò Button
+   private JLabel lb_name; //í˜¸í…”ëª… label
+   private JButton bt_find_pw, bt_join, bt_cancle; //ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°, íšŒì›ê°€ì…, ì·¨ì†Œ Button
    private JButton bt_log; //Login button
    
    
-   public Login() { //»ı¼ºÀÚ ½ÃÀÛ
+   public Login() { //ìƒì„±ì ì‹œì‘
       
-      lb_name=new JLabel("MJ HOTEL"); //È£ÅÚ¸í label »ı¼º
-      lb_id=new JLabel("ID : ");       //id label »ı¼º
-      lb_pw=new JLabel("Passwd : ");    //pw label »ı¼º
-      jtf1=new JTextField(15); //id ÀÔ·ÂÄ­ »ı¼º
-      jtf2=new JTextField(15); //pw ÀÔ·ÂÄ­ »ı¼º
-      bt_log=new JButton("LOGIN");    //Login button »ı¼º
-      bt_find_pw=new JButton("ºñ¹Ğ¹øÈ£ Ã£±â");   //ºñ¹Ğ¹øÈ£ Ã£±â label »ı¼º
-      bt_join=new JButton("È¸¿ø°¡ÀÔ");   //È¸¿ø°¡ÀÔ label »ı¼º
-      bt_cancle=new JButton("Ãë¼Ò");      //Ãë¼Ò label »ı¼º
+      lb_name=new JLabel("MJ HOTEL"); //í˜¸í…”ëª… label ìƒì„±
+      lb_id=new JLabel("ID : ");       //id label ìƒì„±
+      lb_pw=new JLabel("Passwd : ");    //pw label ìƒì„±
+      jtf1=new JTextField(15); //id ì…ë ¥ì¹¸ ìƒì„±
+      jtf2=new JTextField(15); //pw ì…ë ¥ì¹¸ ìƒì„±
+      bt_log=new JButton("LOGIN");    //Login button ìƒì„±
+      bt_find_pw=new JButton("ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°");   //ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° label ìƒì„±
+      bt_join=new JButton("íšŒì›ê°€ì…");   //íšŒì›ê°€ì… label ìƒì„±
+      bt_cancle=new JButton("ì·¨ì†Œ");      //ì·¨ì†Œ label ìƒì„±
       
 
-      Container ct=getContentPane(); //Ã¢ »ı¼º
+      Container ct=getContentPane(); //ì°½ ìƒì„±
       ct.setLayout(null);
 
 
-      //id,pw label°ú ÀÔ·ÂÄ­ ÁÂÇ¥¼³Á¤
+      //id,pw labelê³¼ ì…ë ¥ì¹¸ ì¢Œí‘œì„¤ì •
       lb_name.setBounds(320,120,100,30);
       lb_id.setBounds(210,240,70,30); jtf1.setBounds(310,240,170,30); 
       lb_pw.setBounds(210,290,70,30); jtf2.setBounds(310,290,170,30); 
 
-      //Ã¢¿¡ id,pw label°ú ÀÔ·ÂÄ­ Ãß°¡
+      //ì°½ì— id,pw labelê³¼ ì…ë ¥ì¹¸ ì¶”ê°€
       ct.add(lb_id); ct.add(lb_pw); ct.add(lb_name);
       ct.add(jtf1);  ct.add(jtf2);
       
-      //Login button ÁÂÇ¥¼³Á¤, Ã¢¿¡ Ãß°¡
+      //Login button ì¢Œí‘œì„¤ì •, ì°½ì— ì¶”ê°€
       bt_log.setBounds(300,380,100,40);
       ct.add(bt_log); 
       
@@ -65,7 +65,7 @@ public class Login extends JFrame implements ActionListener{ //·Î±×ÀÎ È­¸é
 	   
 		String s = ae.getActionCommand();
 		
-		if (s.equals("Ãë¼Ò")) { // Ãë¼Ò ¹öÆ° ´©¸£¸é ¸ğµç ÀÔ·Â°ª ÃÊ±âÈ­
+		if (s.equals("ì·¨ì†Œ")) { // ì·¨ì†Œ ë²„íŠ¼ ëˆ„ë¥´ë©´ ëª¨ë“  ì…ë ¥ê°’ ì´ˆê¸°í™”
 			jtf1.setText("");
 			jtf2.setText("");
 		} 
@@ -77,7 +77,7 @@ public class Login extends JFrame implements ActionListener{ //·Î±×ÀÎ È­¸é
       
       Login log = new Login();
 
-      log.setTitle("·Î±×ÀÎ");
+      log.setTitle("ë¡œê·¸ì¸");
       log.setSize(700, 800);
       log.setLocation(350, 80); 
       log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
